@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Testapp</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Test app bla bla
+    </string>
+    <string name="add_series">Add series</string>
+    <string name="logo_of_the_series">Logo of the series</string>
+    <string name="house_of_the_dragon">House of the Dragon</string>
+    <string name="search">Search</string>
+    <string name="search_icon">Search icon</string>
+    <string name="title">Title</string>
+    <string name="release_date">Release date</string>
+    <string name="please_fill_the_fields_below">Please fill the fields below.</string>
+    <string name="cancel">Cancel</string>
+    <string name="rating">Rating</string>
+    <string name="status">Status</string>
+    <string name="number_of_episodes">Number of episodes</string>
+    <string name="number_of_seasons">Number of seasons</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+</resources>
