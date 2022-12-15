@@ -1,9 +1,10 @@
-import 'dart:ffi';
+// import 'dart:ffi';
 
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mobile/db_adapter.dart';
 import 'package:mobile/tvseries.dart';
 import 'package:mobile/text_box.dart';
 
@@ -17,17 +18,19 @@ class AddTVSeries extends StatefulWidget {
 }
 
 class _AddTVSeries extends State<AddTVSeries> {
-  late int id;
+  late int? id;
   late double rating;
   late TextEditingController titleController;
   late TextEditingController releaseDateController;
   late TextEditingController noSeasonsController;
   late TextEditingController noEpisodesController;
   late TextEditingController statusController;
+  late bool updating;
 
   @override
   void initState() {
-    id = (widget._tvSeries == null ? -1 : widget._tvSeries?.id)!;
+    updating = (widget._tvSeries?.id != null);
+    id = widget._tvSeries?.id;
     titleController = widget._tvSeries == null
         ? TextEditingController()
         : TextEditingController(text: widget._tvSeries?.title);
@@ -113,20 +116,26 @@ class _AddTVSeries extends State<AddTVSeries> {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
+        onPressed: () async {
           String title = titleController.text;
           DateTime releaseDate =
-          DateFormat('yyyy-MM-dd').parse(releaseDateController.text);
+              DateFormat('yyyy-MM-dd').parse(releaseDateController.text);
           int noSeasons = int.parse(noSeasonsController.text);
           int noEpisodes = int.parse(noEpisodesController.text);
           String status = statusController.text;
 
           TVSeries newSeries = TVSeries(id, title, releaseDate, noSeasons,
               noEpisodes, status, rating.round());
-          Navigator.pop(context, newSeries);
+          if (updating) {
+            await DbAdapter.updateTvSeries(newSeries);
+          } else {
+            await DbAdapter.addTvSeries(newSeries);
+          }
+          Navigator.pop(context);
         },
         label: const Text("Save TVSeries"),
-        icon: Icon(Icons.save),),
+        icon: Icon(Icons.save),
+      ),
     );
   }
 }

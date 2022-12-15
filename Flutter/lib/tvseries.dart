@@ -1,5 +1,7 @@
+import 'package:intl/intl.dart';
+
 class TVSeries {
-  int _id;
+  int? _id;
   String _title = "New Series";
   DateTime _releaseDate = new DateTime.now();
   int _noSeasons = 1;
@@ -47,9 +49,9 @@ class TVSeries {
     _title = value;
   }
 
-  int get id => _id;
+  int? get id => _id;
 
-  set id(int value) {
+  set id(int? value) {
     _id = value;
   }
 
@@ -60,6 +62,23 @@ class TVSeries {
 
   @override
   int get hashCode => _id.hashCode;
+
+  Map<String, dynamic> toMap(){
+    return {
+      'id' : _id,
+      'title' : _title,
+      'releaseDate': DateFormat('yyyy-MM-dd').format(_releaseDate),
+      'noSeason': _noSeasons,
+      'noEpisodes' : _noEpisodes,
+      'status' : _status,
+      'rating' : _rating,
+    };
+  }
+
+  factory TVSeries.fromMap(Map<String, dynamic> map) => TVSeries(map['id'],
+      map['title'], DateFormat('yyyy-MM-dd').parse(map['releaseDate']),
+      map['noSeason'], map['noEpisodes'],map['status'],map['rating']);
+
 
 }
 
