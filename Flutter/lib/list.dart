@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/add_tv_series.dart';
-import 'package:mobile/db_adapter.dart';
 import 'package:mobile/tvseries.dart';
+
+import 'db_adapter.dart';
 
 class TVSeriesList extends StatefulWidget {
   final String _title;
@@ -26,7 +27,7 @@ class _TVSeriesList extends State<TVSeriesList> {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator();
             } else if (snapshot.hasError) {
-              return Center(child: Text(snapshot.data.toString()));
+              return Center(child: Text(snapshot.error.toString()));
             } else if (snapshot.hasData) {
               if (snapshot.data != null) {
                 return ListView.builder(
@@ -66,7 +67,7 @@ class _TVSeriesList extends State<TVSeriesList> {
                                       child: Text("Cancel")),
                                   TextButton(
                                       onPressed: () async {
-                                        DbAdapter.deleteTvSeries(
+                                        DbAdapter.  deleteTvSeries(
                                             snapshot.data![index]);
                                         setState(() {});
                                         Navigator.of(context).pop();

@@ -68,7 +68,7 @@ class TVSeries {
       'id' : _id,
       'title' : _title,
       'releaseDate': DateFormat('yyyy-MM-dd').format(_releaseDate),
-      'noSeason': _noSeasons,
+      'noSeasons': _noSeasons,
       'noEpisodes' : _noEpisodes,
       'status' : _status,
       'rating' : _rating,
@@ -77,7 +77,7 @@ class TVSeries {
 
   factory TVSeries.fromMap(Map<String, dynamic> map) => TVSeries(map['id'],
       map['title'], DateFormat('yyyy-MM-dd').parse(map['releaseDate']),
-      map['noSeason'], map['noEpisodes'],map['status'],map['rating']);
+      map['noSeasons'], map['noEpisodes'],map['status'],map['rating']);
 
 
 }
