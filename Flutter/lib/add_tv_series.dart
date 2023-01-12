@@ -131,7 +131,7 @@ class _AddTVSeries extends State<AddTVSeries> {
           } else {
             await DbAdapter.addTvSeries(newSeries);
           }
-          Navigator.pop(context);
+          Navigator.pop(context, newSeries);
         },
         label: const Text("Save TVSeries"),
         icon: Icon(Icons.save),
