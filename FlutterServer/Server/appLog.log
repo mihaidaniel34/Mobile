@@ -3060,3 +3060,9 @@ java.lang.RuntimeException: TVSeries not found!
 2023-01-12 23:37:26,205 [INFO] mobile.server.Controller.TVSeriesController [http-nio-8080-exec-10] Getting all series
 2023-01-12 23:37:49,079 [INFO] mobile.server.Controller.TVSeriesController [http-nio-8080-exec-2] Added new series TVSeriesDTO(id=null, title=123123, releaseDate=2023-01-17, noSeasons=5, noEpisodes=5, status=Watching, rating=6)
 2023-01-12 23:37:57,640 [INFO] mobile.server.Controller.TVSeriesController [http-nio-8080-exec-9] Getting all series
+2023-01-12 23:47:24,626 [INFO] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler [SpringApplicationShutdownHook] Stopping...
+2023-01-12 23:47:24,626 [INFO] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler [SpringApplicationShutdownHook] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2cbc2db2]]
+2023-01-12 23:47:24,627 [INFO] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler [SpringApplicationShutdownHook] Stopped.
+2023-01-12 23:47:24,687 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-12 23:47:24,700 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-01-12 23:47:24,705 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

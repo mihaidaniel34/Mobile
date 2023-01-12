@@ -143,6 +143,10 @@ class _AddTVSeries extends State<AddTVSeries> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
+          if (updating && !stompClient.connected){
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Cannot update while offline!")));
+          }
+
           if(titleController.text != "" && releaseDateController.text != "" && noSeasonsController.text != "" && noEpisodesController.text!= "" && statusController.text != ""){
             String title = titleController.text;
             DateTime releaseDate =
